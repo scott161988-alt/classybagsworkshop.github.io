@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classy Bags Workshop | Premium Luxury Restoration</title>
     <style>
-        /* LUXURY DESIGN SYSTEM */
+        /* LUXURY ATELIER DESIGN SYSTEM */
         :root {
             --bg-main: #0a0a0a;
             --panel-bg: #141414;
@@ -26,7 +26,7 @@
         body {
             background-color: var(--bg-main);
             color: var(--text-pure);
-            padding-top: 80px; /* Offset for floating glass header */
+            padding-top: 80px; /* Floating navigation offset */
         }
 
         /* FLOATING GLASS NAVIGATION BAR */
@@ -65,7 +65,7 @@
             border-radius: 4px;
         }
 
-        /* HERO BRAND BANNER */
+        /* BOUTIQUE HERO BRAND BANNER */
         .hero {
             max-width: 1200px;
             margin: 40px auto 20px;
@@ -101,7 +101,7 @@
             gap: 30px;
         }
 
-        /* TABLET & DESKTOP ADJUSTMENTS */
+        /* RESPONSIVE LAYOUT BREAKPOINTS */
         @media (min-width: 600px) { .product-grid { grid-template-columns: 1fr 1fr; } }
         @media (min-width: 900px) { .product-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
@@ -126,9 +126,9 @@
         /* INTERACTIVE STOCK IMAGE CANVAS */
         .image-container {
             width: 100%;
-            padding-top: 100%; /* Perfect square aspect ratio */
+            padding-top: 90%; /* Sleek rectangular aspect ratio */
             position: relative;
-            background: #1a1a1a;
+            background: #161616;
         }
 
         .image-placeholder {
@@ -141,14 +141,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: #333;
             transition: background 0.3s ease;
         }
 
-        /* Subtle glow animation when hovering over an unassigned card */
         .product-card:hover .image-placeholder {
-            background: #222222;
+            background: #1e1e1e;
         }
 
         .badge {
@@ -157,7 +156,7 @@
             left: 15px;
             background: rgba(0, 0, 0, 0.7);
             color: var(--text-pure);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: bold;
             padding: 6px 12px;
             border-radius: 20px;
@@ -168,14 +167,14 @@
 
         /* CARD INFORMATION CONTENT */
         .product-info {
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .brand-name {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--accent-gold);
@@ -184,7 +183,7 @@
         }
 
         .product-title {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 500;
             margin-bottom: 8px;
             color: var(--text-pure);
@@ -195,7 +194,7 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-grow: 1;
         }
 
@@ -209,13 +208,14 @@
         }
 
         .price-tag {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-pure);
+            letter-spacing: 0.5px;
         }
 
         .view-btn {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
@@ -248,61 +248,61 @@
     <!-- FLOATING BRAND HEADER -->
     <header>
         <div class="brand-logo">Classy Bags Workshop</div>
-        <div class="nav-tag">Studio Fleet</div>
+        <div class="nav-tag">Leather Atelier</div>
     </header>
 
     <!-- BOUTIQUE HERO INTRO -->
     <div class="hero">
-        <h1>The Bench Collection</h1>
-        <p>Sourcing, authenticating, and meticulously restoring premium designer archives, vintage utility tech, and streetwear artifacts in South Croydon, London.</p>
+        <h1>The Atelier Departments</h1>
+        <p>Meticulously sourcing, authenticating, and restoring premium vintage leather goods, luxury apparel, and high-end couture accessories in South Croydon, London.</p>
     </div>
 
     <!-- MAIN PRODUCT CARDS SECTION -->
     <div class="catalog-container">
         <div class="product-grid">
 
-            <!-- CARD 1: PREMIUM HANDBAG TUNNEL -->
+            <!-- DEPARTMENT 1: HANDBAGS -->
             <a href="https://ebay.co.uk" class="product-card">
                 <div class="image-container">
                     <span class="badge">Authenticated</span>
                     <div class="image-placeholder">👜</div>
                 </div>
                 <div class="product-info">
-                    <div class="brand-name">Designer Leather</div>
-                    <div class="product-title">Premium Handbag Fleet</div>
-                    <p class="product-desc">Meticulously processed bags from heritage brands including Michael Kors, Paul Costelloe, and Hedgren. Deep cleaned and hardware-polished.</p>
+                    <div class="brand-name">Couture & Shoulder</div>
+                    <div class="product-title">Handbags & Totes</div>
+                    <p class="product-desc">Meticulously processed shoulder bags, crossbodies, and satchels from heritage designers including Michael Kors and Paul Costelloe.</p>
                     <div class="action-bar">
-                        <span class="price-tag">Boutique</span>
-                        <div class="view-btn">Enter Room</div>
+                        <span class="price-tag">Collection</span>
+                        <div class="view-btn">Enter Vault</div>
                     </div>
                 </div>
             </a>
 
-            <!-- CARD 2: UTILITY CAMERA TUNNEL -->
+            <!-- DEPARTMENT 2: PURSES & CLUTCHES -->
             <a href="https://ebay.co.uk" class="product-card">
                 <div class="image-container">
-                    <span class="badge">Bench Tested</span>
-                    <div class="image-placeholder">📷</div>
+                    <span class="badge">Studio Restored</span>
+                    <div class="image-placeholder">👛</div>
                 </div>
                 <div class="product-info">
-                    <div class="brand-name">Vintage Electronics</div>
-                    <div class="product-title">Sony Optical & Tech Lab</div>
-                    <p class="product-desc">Completely audited classic digital imaging kits and multi-lens job lots. Sensor-cleaned and tested to full optical functionality.</p>
+                    <div class="brand-name">Fine Accessories</div>
+                    <div class="product-title">Purses & Clutch Bags</div>
+                    <p class="product-desc">Premium leather wallets, zip-around coin pouches, and evening clutches. Deep conditioned and edge-finished to retail standards.</p>
                     <div class="action-bar">
-                        <span class="price-tag">Verified</span>
-                        <div class="view-btn">Enter Room</div>
+                        <span class="price-tag">Curated</span>
+                        <div class="view-btn">Enter Vault</div>
                     </div>
                 </div>
             </a>
 
-            <!-- CARD 3: THE FULL UNFILTERED INVENTORY HUB -->
+            <!-- DEPARTMENT 3: BACKPACKS -->
             <a href="https://ebay.co.uk" class="product-card">
                 <div class="image-container">
-                    <span class="badge">Full Hub</span>
-                    <div class="image-placeholder">🌐</div>
+                    <span class="badge">Bench Inspected</span>
+                    <div class="image-placeholder">🎒</div>
                 </div>
                 <div class="product-info">
-                    <div class="brand-name">Complete Showroom</div>
-                    <div class="product-title">Main Storefront Inventory</div>
-                    <p class="product-desc">Explore the entire active retail catalog running on the live network. Protected secure checkouts and automated shipping lines powered by eBay.</p>
-
+                    <div class="brand-name">Utility Luxury</div>
+                    <div class="product-title">Premium Backpacks</div>
+                    <p class="product-desc">Restored luxury rucksacks, urban daypacks, and commuter architectures built from heavy-grain leather and technical textiles.</p>
+                    <div class="action-bar">
