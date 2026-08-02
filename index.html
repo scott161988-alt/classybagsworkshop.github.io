@@ -3,150 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classy Bags Workshop</title>
+    <title>Classy Bags Workshop | Premium Luxury Restoration</title>
     <style>
+        /* LUXURY DESIGN SYSTEM */
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-green: #2e7d32;
-            --text-main: #ffffff;
-            --text-sub: #aaaaaa;
+            --bg-main: #0a0a0a;
+            --panel-bg: #141414;
+            --accent-gold: #c5a880;
+            --text-pure: #ffffff;
+            --text-muted: #888888;
+            --border-soft: #222222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: var(--bg-main);
+            color: var(--text-pure);
+            padding-top: 80px; /* Offset for floating glass header */
+        }
+
+        /* FLOATING GLASS NAVIGATION BAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-soft);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            padding: 0 5%;
+            z-index: 1000;
         }
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--text-pure);
         }
 
-        p.subtitle {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            margin-bottom: 40px;
+        .nav-tag {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
         }
 
-        .grid {
+        /* HERO BRAND BANNER */
+        .hero {
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE PREMIUM PRODUCT CATALOG GRID */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .product-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 30px;
         }
 
-        @media (min-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+        /* TABLET & DESKTOP ADJUSTMENTS */
+        @media (min-width: 600px) { .product-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 900px) { .product-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
-        .btn {
-            background-color: var(--card-bg);
-            border: 1px solid #333;
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.2s ease;
+        /* LUXURY BOUTIQUE PRODUCT CARD */
+        .product-card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: #333333;
+        }
+
+        /* INTERACTIVE STOCK IMAGE CANVAS */
+        .image-container {
+            width: 100%;
+            padding-top: 100%; /* Perfect square aspect ratio */
+            position: relative;
+            background: #1a1a1a;
+        }
+
+        .image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            cursor: pointer;
+            align-items: center;
+            font-size: 3rem;
+            color: #333;
+            transition: background 0.3s ease;
         }
 
-        .btn span {
+        /* Subtle glow animation when hovering over an unassigned card */
+        .product-card:hover .image-placeholder {
+            background: #222222;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--text-pure);
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* CARD INFORMATION CONTENT */
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .brand-name {
             font-size: 0.75rem;
-            font-weight: normal;
-            color: var(--text-sub);
-            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
-        .btn:hover {
-            border-color: var(--accent-green);
-            background-color: #222;
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-pure);
+            line-height: 1.4;
         }
 
-        .btn-full {
-            grid-column: 1 / -1;
-            background-color: var(--accent-green);
-            border: none;
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
-        .btn-full:hover {
-            background-color: #1b5e20;
+        /* BOUTIQUE CALL-TO-ACTION BUTTON */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-soft);
+            padding-top: 15px;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-pure);
+        }
+
+        .view-btn {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: var(--text-pure);
+            background: #222222;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .product-card:hover .view-btn {
+            background: var(--text-pure);
+            color: var(--bg-main);
+            border-color: var(--text-pure);
         }
 
         footer {
-            margin-top: 40px;
+            text-align: center;
+            padding: 40px 20px;
             font-size: 0.75rem;
-            color: var(--text-sub);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-soft);
             letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Classy Bags Workshop</h1>
-        <p class="subtitle">Premium Sourcing & Vintage Restoration • London</p>
+    <!-- FLOATING BRAND HEADER -->
+    <header>
+        <div class="brand-logo">Classy Bags Workshop</div>
+        <div class="nav-tag">Studio Fleet</div>
+    </header>
 
-        <div class="grid">
-            <div onclick="routeDept('bags')" class="btn">
-                👜 Handbag Department
-                <span>Browse Leather & Designer Assets</span>
-            </div>
-            
-            <div onclick="routeDept('cameras')" class="btn">
-                📷 Tech & Camera Lab
-                <span>Browse Sony Hardware & Optics</span>
-            </div>
-
-            <div onclick="routeDept('all')" class="btn btn-full">
-                🌐 View Full Showroom Inventory
-            </div>
-        </div>
-
-        <footer>
-            SECURE PLATFORM CHECKOUT POWERED BY EBAY
-        </footer>
+    <!-- BOUTIQUE HERO INTRO -->
+    <div class="hero">
+        <h1>The Bench Collection</h1>
+        <p>Sourcing, authenticating, and meticulously restoring premium designer archives, vintage utility tech, and streetwear artifacts in South Croydon, London.</p>
     </div>
 
-    <script>
-        function routeDept(department) {
-            // Replace YOUR_EBAY_USERNAME with your actual eBay username text
-            const destinations = {
-                'bags': 'https://ebay.co.uk',
-                'cameras': 'https://ebay.co.uk',
-                'all': 'https://ebay.co.uk'
-            };
+    <!-- MAIN PRODUCT CARDS SECTION -->
+    <div class="catalog-container">
+        <div class="product-grid">
 
-            if (destinations[department]) {
-                window.location.href = destinations[department];
-            }
-        }
-    </script>
+            <!-- CARD 1: PREMIUM HANDBAG TUNNEL -->
+            <a href="https://ebay.co.uk" class="product-card">
+                <div class="image-container">
+                    <span class="badge">Authenticated</span>
+                    <div class="image-placeholder">👜</div>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">Designer Leather</div>
+                    <div class="product-title">Premium Handbag Fleet</div>
+                    <p class="product-desc">Meticulously processed bags from heritage brands including Michael Kors, Paul Costelloe, and Hedgren. Deep cleaned and hardware-polished.</p>
+                    <div class="action-bar">
+                        <span class="price-tag">Boutique</span>
+                        <div class="view-btn">Enter Room</div>
+                    </div>
+                </div>
+            </a>
 
-</body>
-</html>
+            <!-- CARD 2: UTILITY CAMERA TUNNEL -->
+            <a href="https://ebay.co.uk" class="product-card">
+                <div class="image-container">
+                    <span class="badge">Bench Tested</span>
+                    <div class="image-placeholder">📷</div>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">Vintage Electronics</div>
+                    <div class="product-title">Sony Optical & Tech Lab</div>
+                    <p class="product-desc">Completely audited classic digital imaging kits and multi-lens job lots. Sensor-cleaned and tested to full optical functionality.</p>
+                    <div class="action-bar">
+                        <span class="price-tag">Verified</span>
+                        <div class="view-btn">Enter Room</div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 3: THE FULL UNFILTERED INVENTORY HUB -->
+            <a href="https://ebay.co.uk" class="product-card">
+                <div class="image-container">
+                    <span class="badge">Full Hub</span>
+                    <div class="image-placeholder">🌐</div>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">Complete Showroom</div>
+                    <div class="product-title">Main Storefront Inventory</div>
+                    <p class="product-desc">Explore the entire active retail catalog running on the live network. Protected secure checkouts and automated shipping lines powered by eBay.</p>
+
